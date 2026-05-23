@@ -1,0 +1,15 @@
+%% © 2026 Icii Digital. This software is provided 'as is', without warranty of any kind, express or implied. In no event shall Icii Digital be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+
+-module(zero_bus).
+-behaviour(application).
+
+-export([start/0, start/2, stop/1]).
+
+start() ->
+    application:start(zero_bus).
+
+start(_Type, _Args) ->
+    zero_bus_sup:start_link().
+
+stop(_State) ->
+    ok.
